@@ -210,7 +210,6 @@
   const levelTitle = document.getElementById('levelTitle');
   const messageDiv = document.getElementById('message');
   const finalDisplayDiv = document.getElementById('finalDisplay');
-  const saveBtn = document.getElementById('saveBtn');
   const backToSelectorBtn = document.getElementById('backToSelector');
   const playBtn = document.getElementById('playBtn');
   const homeFromSelectorBtn = document.getElementById('homeFromSelector');
@@ -235,13 +234,13 @@
     finalDisplayDiv.innerHTML = '';
     messageDiv.textContent = '';
   };
-  saveBtn.onclick = saveProgress;
+  
 
   function showScreen(screen) {
     [homeScreen, levelSelector, gameScreen].forEach(s => s.style.display = 'none');
     screen.style.display = 'block';
   }
-
+  
   function renderLevelSelector() {
     levelListDiv.innerHTML = '';
     for(let i=0; i<puzzles.length; i++) {
@@ -361,10 +360,6 @@
     finalDisplayDiv.appendChild(canvas);
   }
 
-  function saveProgress() {
-    localStorage.setItem('completedLevels', JSON.stringify(completedLevels));
-    alert('Progress saved!');
-  }
 
   // Start on home screen
   showScreen(homeScreen);
